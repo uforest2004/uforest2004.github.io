@@ -1,68 +1,94 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-    <meta charset="UTF-8">
-    <title>我的个人网站</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background: #f5f5f5;
-        }
-        header {
-            background: #333;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        section {
-            padding: 20px;
-        }
-        .card {
-            background: white;
-            padding: 15px;
-            margin: 10px 0;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        footer {
-            text-align: center;
-            padding: 10px;
-            background: #333;
-            color: white;
-        }
-    </style>
+<meta charset="UTF-8">
+<title>我的主页</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+
+        /* 背景（渐变 + 图片可替换） */
+        background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                    url("images/background.jpg");
+        background-size: cover;
+        background-position: center;
+
+        color: white;
+        text-align: center;
+    }
+
+
+    h1 {
+        font-size: 42px;
+        margin-bottom: 30px;
+        letter-spacing: 2px;
+    }
+
+    .buttons a {
+        display: inline-block;
+        margin: 10px;
+        padding: 12px 25px;
+        text-decoration: none;
+        border-radius: 25px;
+        font-size: 16px;
+        transition: 0.3s;
+    }
+
+    /* 普通按钮 */
+    .btn {
+        background: white;
+        color: #333;
+    }
+
+    .btn:hover {
+        background: #ddd;
+    }
+
+    /* 红色强调按钮 */
+    .btn-danger {
+        background: #e74c3c;
+        color: white;
+    }
+
+    .btn-danger:hover {
+        background: #c0392b;
+    }
+</style>
 </head>
+
 <body>
 
-<header>
-    <h1>你好，我是XXX 👋</h1>
-    <p>欢迎来到我的个人网站</p>
-</header>
+<div class="container">
+    <h1>有朋自远方来，不亦说乎</h1>
 
-<section>
-    <div class="card">
-        <h2>关于我</h2>
-        <p>这里写你的介绍，比如：学生 / 开发者 / 爱好...</p>
+    <div class="buttons">
+        <a href="about.html" class="btn">关于我</a>
+        <a href="#" class="btn-danger" onclick="checkAccess()">禁止访问</a>
     </div>
+</div>
 
-    <div class="card">
-        <h2>我的项目</h2>
-        <ul>
-            <li>项目1</li>
-            <li>项目2</li>
-        </ul>
-    </div>
+<script>
+function checkAccess() {
+    var password = prompt("你是谁：");
 
-    <div class="card">
-        <h2>联系方式</h2>
-        <p>Email: your@email.com</p>
-    </div>
-</section>
-
-<footer>
-    <p>© 2026 我的个人网站</p>
-</footer>
+    if (password === "我") {
+        window.location.href = "secret.html";
+    } else {
+        alert("无权限访问！");
+    }
+}
+</script>
 
 </body>
 </html>
